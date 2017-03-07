@@ -1,8 +1,10 @@
-# C++ Boilerplate
+# bitcoin-cpp-script
 
-[![Build Status](https://travis-ci.org/vaalentin/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/vaalentin/cpp-boilerplate)
+[![Build Status](https://travis-ci.org/bitjson/bitcoin-cpp-script.svg?branch=master)](https://travis-ci.org/bitjson/bitcoin-cpp-script)
 
-Simple C++11 project boilerplate, using [Google Test](https://github.com/google/googletest/) and [Travis CI](https://travis-ci.org/).
+** (Work in progress) **
+
+Simple CLI to execute programs in Bitcoin Script using the interpreter from the [reference implementation](https://github.com/bitcoin/bitcoin/).
 
 ## Requirements
 
@@ -15,7 +17,7 @@ Simple C++11 project boilerplate, using [Google Test](https://github.com/google/
 Generate build files with:
 
 ```
-$ git clone --recursive git@github.com:vaalentin/cpp-boilerplate.git
+$ git clone --recursive git@github.com:bitjson/bitcoin-cpp-script.git
 $ cd cpp-boilerplate
 $ mkdir build
 $ cd build
@@ -69,4 +71,8 @@ If you wan't to build from scratch again, you can just delete the folder and sta
 
 ## License
 
-MIT, see [LICENSE.md](https://github.com/vaalentin/cpp-boilerplate/blob/master/LICENSE.md) for more details.
+MIT, see [LICENSE.md](./LICENSE.md) for more details.
+
+## Boilerplate
+
+This project was created using the fantastic C++11 starter project by `vaalentin`: [cpp-boilerplate](https://github.com/vaalentin/cpp-boilerplate).
