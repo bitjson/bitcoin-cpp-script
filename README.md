@@ -16,15 +16,20 @@ Simple CLI to execute programs in Bitcoin Script using the interpreter from the 
 
 Generate build files with:
 
-```
-$ git clone --recursive git@github.com:bitjson/bitcoin-cpp-script.git
-$ cd cpp-boilerplate
-$ mkdir build
-$ cd build
-$ cmake -D TESTS=ON ..
+```bash
+git clone --recursive git@github.com:bitjson/bitcoin-cpp-script.git
+cd bitcoin-cpp-script
+./make.sh
+
+cd build
+
+# use CLI
+./bitcoin-cpp-script [hex-encoded script]
+# execute tests
+./tests
 ```
 
-If you don't use `git clone --recursive`,  you have to manually setup the submodules with:
+If you don't use `git clone --recursive`,  you'll have to manually setup the submodules with:
 
 ```
 $ git submodule update --init --recursive
@@ -32,7 +37,13 @@ $ git submodule update --init --recursive
 
 ## Usage
 
-- `src` is where your code goes.
+```bash
+./bitcoin-cpp-script [hex-encoded script]
+```
+
+## Project Structure
+
+### `./src` is where code goes
 
 When you add a new file, don't forget to update `CMakeLists.txt` and execute `cmake` again.
 
@@ -42,7 +53,7 @@ add_library(core
 	)
 ```
 
-- `test` is where your tests go.
+### `./test` is where tests go
 
 Same as `src`, when you add a new file, you have to update `CMakeLists.txt` and execute `cmake` again.
 
@@ -53,21 +64,13 @@ add_executables(tests
 	)
 ```
 
-- `third-party` hosts the third party libraries.
+### `./third-party` hosts third party libraries
 
 They don't necessarily have to be submodules. You probably have to `add_subdirectory` and `include_directories` in `CMakeLists.txt`.
 
-- `build` is where the `cmake` generated files and the executables will be.
+### `./build` holds `cmake` generated files and the executables
 
-From this folder:
-
-```
-- make # build
-- ./main # execute project
-- ./tests # execute tests
-```
-
-If you wan't to build from scratch again, you can just delete the folder and start again.
+If you want to build from scratch again, you can just delete `build` and start again.
 
 ## License
 
