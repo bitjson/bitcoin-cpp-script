@@ -1,20 +1,10 @@
 #ifndef CORE_H
 #define CORE_H
 
-#include <tuple>
+#include <vector>
+#include <string>
+#include <cstdlib>
 
-int add(int a, int b);
+std::vector<unsigned char> hexStringToBytes(const std::string& hex);
 
-class Vector2 {
-  private:
-    float m_x;
-    float m_y;
-
-  public:
-    Vector2(float x, float y);
-    ~Vector2();
-    void set(float x, float y);
-    std::tuple<float, float> get();
-};
-
-#endif
+#endif // CORE_H

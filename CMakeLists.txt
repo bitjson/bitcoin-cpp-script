@@ -12,15 +12,22 @@ add_library(core
   ./src/core.cpp)
 
 # Main entry point.
-add_executable(main
+add_executable(bitcoin-cpp-script
   ./src/main.cpp)
 
 # Link core to main.
-target_link_libraries(main
+target_link_libraries(bitcoin-cpp-script
   core)
 
 # Add flags.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
+
+# Uncomment for debugging
+if(MSVC)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi")
+else()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+endif()
 
 if(TESTS)
 
@@ -36,8 +43,7 @@ if(TESTS)
   # Tests. *-test.cpp should be added here.
   add_executable(tests
     ./test/main-test.cpp
-    ./test/function-test.cpp
-    ./test/class-test.cpp)
+    ./test/function-test.cpp)
 
   # Link core, pthread and gtest to tests.
   target_link_libraries(tests

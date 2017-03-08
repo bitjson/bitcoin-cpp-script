@@ -1,23 +1,16 @@
-#include <tuple>
+#include <vector>
+#include <string>
+#include <cstdlib>
 #include "core.h"
 
-int add(int a, int b) {
-  return a + b;
-}
+std::vector<unsigned char> hexStringToBytes(const std::string& hex) {
+  std::vector<unsigned char> bytes;
 
-Vector2::Vector2(float x, float y) {
-  set(x, y);
-}
+  for (unsigned int i = 0; i < hex.length(); i += 2) {
+    std::string byteString = hex.substr(i, 2);
+    unsigned char byte = (unsigned char) strtol(byteString.c_str(), NULL, 16);
+    bytes.push_back(byte);
+  }
 
-Vector2::~Vector2() {
-
-}
-
-void Vector2::set(float x, float y) {
-  m_x = x;
-  m_y = y;
-}
-
-std::tuple<float, float> Vector2::get() {
-  return std::tuple<float, float> (m_x, m_y);
+  return bytes;
 }

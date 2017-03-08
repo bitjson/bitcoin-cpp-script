@@ -2,15 +2,17 @@
 #include "core.h"
 
 int main(int argc, char** argv) {
-  int val = add(1, 3);
+  if ( argc != 2 ) {
+    std::cout << "usage: ./bitcoin-cpp-script <serialized bitcoin script>" << std::endl;
+    return 1;
+  }
 
-  Vector2 vec(0.0, 0.0);
-  vec.set(2.5, 1.0);
-  std::tuple<float, float> coords = vec.get();
+  std::vector<unsigned char> script = hexStringToBytes(argv[1]);
 
-  std::cout << val << std::endl;
-  std::cout << std::get<0>(coords) << std::endl;
-  std::cout << std::get<1>(coords) << std::endl;
+  for (auto i: script)
+    std::cout << (int) i << ' ';
+
+  std::cout << std::endl;
 
   return 0;
 }
